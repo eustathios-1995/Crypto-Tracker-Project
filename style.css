@@ -72,10 +72,53 @@ body {
 }
 
 #chartSection {
-    width: 1000px;
+    width: 850px;
     flex-shrink: 0;
     background: white;
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+#closeChart {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -30px;
+    position:absolute
+}
+
+#tradingview_chart {
+
+    padding-top: 15px;
+}
+
+
+#topGainers {
+    flex-shrink: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    width: fit-content;
+    margin: 10px 10px 30px 10px;
+}
+
+
+#topLosers {
+    flex-shrink: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    width: fit-content;
+    margin: 10px 10px 30px 10px;
+}
+
+#gainers-losers-container {
+  display: flex;
+  gap: 20px; /* Optional: adds space between the two boxes */
 }
