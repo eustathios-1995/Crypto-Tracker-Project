@@ -10,18 +10,43 @@ const symbolMap = {
     dogecoin: "DOGEUSD",
     "figure-heloc": null
 };
+let cachedData = [];
 
 const element = document.getElementById('maintable');
 
 const chartbtn = document.getElementById("closeChart");
 
+let currentSort = "market_cap_rank"; // which column
+let sortAscending = true; // which direction
+function sortTable(column) {
+    if (currentSort === column) {
+        sortAscending = !sortAscending;
+    } else {
+        currentSort = column;
+        sortAscending = true;
+    }
+
+    const sorted = [...cachedData].sort((a, b) => {
+        let valA = a[column] || 0;
+        let valB = b[column] || 0;
+        return sortAscending ? valA - valB : valB - valA;
+    });
+
+    renderTable(sorted);
+}
+
+
+
 async function fetchCoins() {
     let response = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true");
     
     let data = await response.json();
-        // console.log(data[0].sparkline_in_7d.price);
-        
+    cachedData = data;
+    renderTable(cachedData);
+    // console.log(data[0].sparkline_in_7d.price);
+}
 
+function renderTable(data) {
     let tbody = document.getElementById("coinList");
     tbody.innerHTML = "";
     
@@ -91,10 +116,14 @@ async function fetchCoins() {
         td5.onclick = function() {
             showChart(this.dataset.coinId);
         };
+        
 
     }
 // Sort the data array by price_change_percentage_24h
 const sorted = [...data].sort((a, b) => (a.price_change_percentage_24h || 0) - (b.price_change_percentage_24h || 0));
+
+
+
 
 // Get the 3 with the lowest and highest change
 const threeLowest = sorted.slice(0, 3).map(item => ({
@@ -167,6 +196,8 @@ for (const coin of threeHighest) {
     tbodylosers.appendChild(trlosers); // Append to the losers tbody
     }
 
+
+    
 }
 
 async function showChart(coinId) {
