@@ -36,6 +36,11 @@ img {
     font-weight: 500;
 }
 
+.grey {
+    color: #000000;
+    font-weight: 500;
+}
+
 h1{
     color:rgb(17, 209, 103);
     text-align: center;
@@ -59,6 +64,7 @@ h1{
 #chartSection {
     width: 500px;
     flex-shrink: 0;
+    position: sticky;
 }
 
 body {
@@ -83,6 +89,9 @@ body {
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0; /* or the height of your header */
+    z-index: 1000;
 }
 
 #closeChart {
@@ -99,6 +108,7 @@ body {
 #tradingview_chart {
 
     padding-top: 15px;
+    position: sticky;
 }
 
 
@@ -132,7 +142,7 @@ body {
     font-size: 22px;
 }
 
-#somethingElse {
+#trending {
     flex-shrink: 0;
     background: white;
     border-radius: 12px;

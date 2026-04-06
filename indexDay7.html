@@ -20,6 +20,18 @@
                 <tbody id="gainersList"></tbody>
             </table>
         </div>
+        <div id="trending">Top 3 Trending Coins
+            <table>
+                <thead>
+                    <tr>
+                        <th>CryptoCurrency</th>
+                        <th>24h Change</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="trendingList"></tbody>
+            </table>
+        </div>
         <div id="topLosers">Top 3 Losers
             <table>
                 <thead>
@@ -32,20 +44,8 @@
                 <tbody id="losersList"></tbody>
             </table>
         </div>
-        <div id="somethingElse">Something else
-            <table>
-                <thead>
-                    <tr>
-                        <th>CryptoCurrency</th>
-                        <th>24h Change</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody id="somethingElseList"></tbody>
-            </table>
-        </div>
     </div>
-    <div id="beforeTable">TOP 10 CRYPTO</div>
+    <div id="beforeTable"></div>
         <div class="main-layout">
             
             <div class="table-section">
@@ -55,7 +55,7 @@
                             <th onclick="sortTable('market_cap_rank')" id="rankids">Rank</th>
                             <th>CryptoCurrency</th>
                             <th onclick="sortTable('current_price')" id="priceid">Price</th>
-                            <th onclick="sortTable('total_volume')" id="volumeid">Volume</th>
+                            <th onclick="sortTable('total_volume')" id="volumeid">Volume 24H</th>
                             <th onclick="sortTable('price_change_percentage_24h')" id="changeid">24h Change</th>
                             <th onclick="sortTable('market_cap')" id="capid">Market Cap</th>
                             <th id="lastdays">Last 7 Days</th>
